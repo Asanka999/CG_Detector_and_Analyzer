@@ -1,0 +1,33 @@
+-m venv venv
+venv\Scripts\activated
+
+# to install the library
+
+	pip install -r requirements.txt
+
+# Run the Backend;
+
+   ##Start the Flask Server:In the terminal (with the virtual environment activated), run:
+
+	python app.py
+	The Flask server will start and listen on http://localhost:5000.
+
+#Verify the Backend:
+
+   ##(You should see a message indicating the Flask app is running.)
+
+	Open your browser and go to http://localhost:5000.
+
+#Run the Frontend
+
+   ##Serve the Frontend: If you have the Live Server extension installed:
+
+	Right-click on index.html in VS Code and select Open with Live Server.
+
+	This will open the frontend in your browser at http://127.0.0.1:5500/index.html.
+
+#Test the Application:
+
+	Upload a video file (e.g., .mp4) through the frontend interface.
+
+	The backend will process the video and return analysis results, which will be displayed on 	the frontend.

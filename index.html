@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Analysis System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-running"></i>
+                <h1>Motion Analysis Pro</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#upload" class="active">Analyze</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="hero">
+                <div class="hero-content">
+                    <h2>Advanced Motion Analysis</h2>
+                    <p>Upload your video to analyze movement patterns, joint angles, and body mechanics</p>
+                    <button id="start-analysis" class="btn-primary">Start Analysis</button>
+                </div>
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/500x300" alt="Motion analysis visualization">
+                </div>
+            </section>
+
+            <section id="upload" class="card">
+                <h2>Upload Video for Analysis</h2>
+                <div id="upload-container">
+                    <form id="upload-form">
+                        <div class="drop-zone">
+                            <span class="drop-zone-prompt">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag and drop video or click to browse</p>
+                            </span>
+                            <input type="file" name="file" id="file-input" accept=".mp4,.avi,.mov,.mkv" class="drop-zone-input">
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="height-input">Subject Height (cm):</label>
+                            <input type="number" id="height-input" name="height" value="175" min="50" max="250">
+                        </div>
+                       
+                        <div class="form-actions">
+                            <button type="submit" id="analyze-btn" class="btn-primary" disabled>
+                                <i class="fas fa-chart-line"></i> Analyze Motion
+                            </button>
+                        </div>
+                    </form>
+                </div>
+               
+                <div id="loading" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Processing video... This may take a few minutes.</p>
+                </div>
+            </section>
+
+            <section id="results" class="hidden card">
+                <h2>Analysis Results</h2>
+               
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="video">Analyzed Video</button>
+                    <button class="tab-btn" data-tab="joint-angles">Joint Angles</button>
+                    <button class="tab-btn" data-tab="cg-position">Center of Gravity</button>
+                    <button class="tab-btn" data-tab="data">Raw Data</button>
+                </div>
+               
+                <div id="video-tab" class="tab-content active">
+                    <div class="video-container">
+                        <video id="analyzed-video" controls>
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+               
+                <div id="joint-angles-tab" class="tab-content">
+                    <div class="graph-container">
+                        <img id="joint-angles-graph" src="" alt="Joint angles graph">
+                    </div>
+                    <div class="analysis-insight">
+                        <h3>Joint Angle Analysis</h3>
+                        <p>This graph shows the changes in joint angles over time. Smooth curves indicate fluid movement, while sharp changes may indicate compensatory movements.</p>
+                    </div>
+                </div>
+               
+                <div id="cg-position-tab" class="tab-content">
+                    <div class="graph-container">
+                        <img id="cg-position-graph" src="" alt="Center of gravity position graph">
+                    </div>
+                    <div class="trajectory-container">
+                        <img id="cg-trajectory-graph" src="" alt="Center of gravity trajectory">
+                    </div>
+                    <div class="analysis-insight">
+                        <h3>Center of Gravity Analysis</h3>
+                        <p>These graphs show how the center of gravity moves throughout the motion. Stable movement patterns typically show smooth trajectories.</p>
+                    </div>
+                </div>
+               
+                <div id="data-tab" class="tab-content">
+                    <div class="data-download">
+                        <p>Download the complete analysis data for further processing:</p>
+                        <a id="data-download-link" href="#" class="btn-secondary">
+                            <i class="fas fa-file-csv"></i> Download CSV Data
+                        </a>
+                    </div>
+                </div>
+               
+                <div class="result-actions">
+                    <button id="new-analysis-btn" class="btn-secondary">
+                        <i class="fas fa-plus"></i> New Analysis
+                    </button>
+                </div>
+            </section>
+
+            <section id="how-it-works" class="card">
+                <h2>How It Works</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Upload Video</h3>
+                        <p>Upload any video file (.mp4, .avi, .mov, .mkv) of the motion you want to analyze.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Processing</h3>
+                        <p>Our system uses advanced AI to detect body landmarks and track movement patterns.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Get Results</h3>
+                        <p>View detailed analysis of joint angles, movement patterns, and center of gravity.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="card">
+                <h2>About Motion Analysis Pro</h2>
+                <p>Motion Analysis Pro is an advanced tool for analyzing human movement using computer vision and biomechanical principles. The system helps athletes, physical therapists, and movement specialists gain insights into motion patterns.</p>
+                <p>The analysis is powered by MediaPipe and OpenCV, with a focus on accuracy and ease of use.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Motion Analysis Pro. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
